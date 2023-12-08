@@ -14,7 +14,7 @@ const userModel = require('../models/userModel');
 dbConnect();
 
 
-app.use('/api',userRoutes)
+app.use('/api', userRoutes)
 
 
 const path = require('path');
@@ -48,6 +48,9 @@ app.get('/login', async function (req, res) {
 
 app.get('/register', async function (req, res) {
     res.render('Register');
+});
+app.get('/profile/:token', async function (req, res) {
+    res.render('profile');
 });
 app.get('/menu', async function (req, res) {
     res.render('menu');
