@@ -98,17 +98,23 @@ const resturantSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    Certification: {
-        type: String,
-        default: null
-    }, photo_id: {
+    verified_Certification: {
         type: String,
         default: null
     },
-    city: {
+    resturant_photos: {
         type: String,
         default: null
-    }, state: {
+    },
+    resturant_address: {
+        type: String,
+        default: null
+    },
+
+    resturant_city: {
+        type: String,
+        default: null
+    }, resturant_state: {
         type: String,
         default: null
     }, fb_Url: {
@@ -133,50 +139,46 @@ const resturantSchema = new mongoose.Schema({
     }, dob: {
         type: String,
         default: null
-    }, UserName: {
+    }, Resturnat_name: {
         type: String,
         default: null
     }, About: {
         type: String,
         default: null
     },
-    AcademyName: {
+    Timming: {
         type: String,
         default: null
 
     },
-    AcademyAddress: {
+    Offers: {
         type: String,
         default: null
     },
-    AcademyImage: {
+    Rating: {
         type: String,
         default: null
     },
-    Services: {
+    Comments: {
         type: String,
         default: null
-    }, Specailization: {
+    }, Dislikes: {
         type: String,
         default: null
     },
-   
-   
-    memberShips: {
+    Likes: {
+        type: String,
+        default: null
+    },
+    Resturant_helpline_no: {
         type: String,
         default: null
     }
-   
-    , BankName: {
+
+    , experience: {
         type: String,
         default: null
-    }, BranchName: {
-        type: String,
-        default: null
-    }, Account_Number: {
-        type: String,
-        default: null
-    }, AccountName: {
+    }, chef: {
         type: String,
         default: null
     },
@@ -214,6 +216,7 @@ const customerSchema = new mongoose.Schema({
     address: String,
     city: String,
     state: String,
+    pincode:String,
     image: {
         type: String,
         default: null
@@ -222,7 +225,10 @@ const customerSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-
+    cart: [{
+        product_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Menu' },
+        quantity: { type: Number, default: 1 },
+    }],
 
     age: {
         type: String,

@@ -73,6 +73,20 @@
 
                 <div class="col-md-12 bg-dark d-flex align-items-center register">
                     <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                        <!-- Success Alert -->
+                        <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert"
+                            style="display: none;">
+                            <strong>Success!</strong> Registration successful. Please login to your account.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <!-- Error Alert -->
+                        <div id="errorAlert" class="alert alert-danger alert-dismissible fade show" role="alert"
+                            style="display: none;">
+                            <strong>Error!</strong> Registration failed. Please check your details and try again.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
                         <h1 class="text-white mb-4">Create new account</h1>
                         <form id="registrationForm" enctype="multipart/form-data">
@@ -149,6 +163,7 @@
             <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
     <script>
+        const apiUrl = "<%= apiUrl %>";
         function registerUser() {
             // Get form values
             var name = document.getElementById("name").value;
@@ -179,18 +194,49 @@
             event.preventDefault();
 
             // Make API call
-            fetch("http://localhost:8000/api/register", requestOptions)
-                .then(response => response.text())
+            fetch(`${apiUrl}/api/register`, requestOptions)
+                .then(response => response.json())
                 .then(result => {
                     console.log(result);
-                    window.location.href = "/login";
+                    if (result.success === true) {
+                        // Display success alert
+                        showSuccessAlert(result.message);
+                        // Redirect to login page
+                        window.location.href = "/login";
+                    } else {
+                        // Display error alert
+                        showErrorAlert(result.message);
+                    }
                     // Handle success, e.g., show a success message or redirect to another page
                 })
                 .catch(error => {
                     console.log('error', error);
+                    showErrorAlert(error);
+
                     // Handle error, e.g., show an error message
                 });
         }
+
+        // Function to show success alert
+        function showSuccessAlert(message) {
+            const successAlert = document.getElementById('successAlert');
+            if (successAlert) {
+                successAlert.innerHTML = `<strong>Success!</strong> ${message}
+                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
+                successAlert.style.display = 'block';
+            }
+        }
+
+        // Function to show error alert
+        function showErrorAlert(message) {
+            const errorAlert = document.getElementById('errorAlert');
+            if (errorAlert) {
+                errorAlert.innerHTML = `<strong>Error!</strong> ${message}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
+                errorAlert.style.display = 'block';
+            }
+        }
+
 
         document.addEventListener("DOMContentLoaded", function () {
             // Attach the registerUser function to the form's submit event

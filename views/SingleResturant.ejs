@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Algo-Restoran - Bootstrap Restaurant Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="../img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <%- include('Header.ejs') %>
+
+                <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                    <div class="container text-center my-5 pt-5 pb-4">
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center text-uppercase">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s"
+                                    src="../img/about-1.jpg">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s"
+                                    src="../img/about-2.jpg" style="margin-top: 25%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s"
+                                    src="../img/about-3.jpg">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s"
+                                    src="../img/about-4.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
+                        <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i><span
+                                id="about">Algo-Restoran</span></h1>
+                        <p class="mb-4 AboutContent" id="content">Tempor erat elitr rebum at clita. Diam dolor diam
+                            ipsum sit. Aliqu diam amet
+                            diam et eos erat ipsum et lorem et sit, sed stet lorem sit.
+                            Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
+                            diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna
+                            dolore erat amet</p>
+                        <div class="row g-4 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0 experience"
+                                        data-toggle="counter-up" id="experience">15
+                                    </h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Years of</p>
+                                        <h6 class="text-uppercase mb-0">Experience</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0 chef" data-toggle="counter-up"
+                                        id="chef">50
+                                    </h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Popular</p>
+                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
+                    <h1 class="mb-5">Most Popular Items</h1>
+                </div>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill"
+                                href="#tab-1">
+                                <i class="fa fa-coffee fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Popular</small>
+                                    <h6 class="mt-n1 mb-0">Breakfast</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill"
+                                href="#tab-2">
+                                <i class="fa fa-hamburger fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Special</small>
+                                    <h6 class="mt-n1 mb-0">Launch</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill"
+                                href="#tab-3">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Lovely</small>
+                                    <h6 class="mt-n1 mb-0">Dinner</h6>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+
+
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+
+
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+
+
+
+
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">About us</h5>
+                    <h1 class="mb-5">Details</h1>
+                </div>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill"
+                                href="#tab-11">
+                                <i class="fa fa-coffee fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Popular</small>
+                                    <h6 class="mt-n1 mb-0">Offers</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill"
+                                href="#tab-12">
+                                <i class="fa fa-hamburger fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Special</small>
+                                    <h6 class="mt-n1 mb-0">Menu</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill"
+                                href="#tab-13">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Lovely</small>
+                                    <h6 class="mt-n1 mb-0">About</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill"
+                                href="#tab-14">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Lovely</small>
+                                    <h6 class="mt-n1 mb-0">Review</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill"
+                                href="#tab-15">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Lovely</small>
+                                    <h6 class="mt-n1 mb-0">Help</h6>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-11" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt=""
+                                            style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Sun 10:00 AM - 12:00 AM</span>
+                                                <span class="text-primary">₹ 10% Off</span>
+                                            </h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-12" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+
+                                <div class="col-lg-6 d-flex ">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-1.jpg" alt=""
+                                            style="width: 80px;">
+
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-1.jpg" alt=""
+                                            style="width: 80px;">
+
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-1.jpg" alt=""
+                                            style="width: 80px;">
+
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-1.jpg" alt=""
+                                            style="width: 80px;">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-13" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt=""
+                                            style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>${menuItem.title}</span>
+                                                <span class="text-primary">₹${menuItem.price}</span>
+                                            </h5>
+                                            <small class="fst-italic">${menuItem.content}</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-14" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt=""
+                                            style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>${menuItem.title}</span>
+                                                <span class="text-primary">₹${menuItem.price}</span>
+                                            </h5>
+                                            <small class="fst-italic">${menuItem.content}</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-15" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt=""
+                                            style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Call the resturant</span>
+                                                <span class="text-primary">+919876545678</span>
+                                            </h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add this script tag in your HTML file -->
+
+
+
+        <!-- Team Start -->
+        <div class="container-xxl pt-5 pb-3">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
+                    <h1 class="mb-5">Our Master Chefs</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-1.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-2.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-3.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-4.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+
+        <!-- Footer Start -->
+        <%- include('footer.ejs') %>
+
+            <!-- Footer End -->
+
+
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    <script>
+        const apiUrl = "<%= apiUrl %>";
+
+        // Function to fetch and display menu items from the API
+        async function fetchAndDisplayMenu() {
+            try {
+                // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
+                const response = await fetch(`${apiUrl}/api/Allmenus`);
+                const data = await response.json();
+                console.log(data, "111");
+
+                // Assuming the API returns an array of menu items
+                const menuItems = data?.[0]?.data;
+                console.log(menuItems);
+
+                // Create an object to store the count of items for each tag
+                const tagCounts = {};
+
+                // Iterate through menu items and filter them based on tags
+                menuItems.forEach((menuItem) => {
+                    const tabId = getTabIdByTag(menuItem.tags);
+                    if (tabId) {
+                        // Increment the count for the corresponding tag
+                        tagCounts[tabId] = (tagCounts[tabId] || 0) + 1;
+
+                        // Get the container to append menu items
+                        const menuContainer = document.querySelector(`#${tabId} .row`);
+                        console.log(menuContainer);
+
+                        // Create HTML elements for the menu item
+                        const menuItemHTML = `
+                            <div class="col-lg-6">
+                                <div class="d-flex align-items-center">
+                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="" style="width: 80px;">
+                        <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                          <span>${menuItem.title}</span>
+                          <span class="text-primary">₹${menuItem.price}</span>
+                          <span class="text-white btn btn-primary" onclick="handleOrderClick('${menuItem._id}')">Order</span>
+                        </h5>
+                        <small class="fst-italic">${menuItem.content}</small>
+                      </div>
+                    </div>
+    
+                            </div>
+                        `;
+
+                        // Append the generated HTML to the container
+                        menuContainer.innerHTML += menuItemHTML;
+                    }
+                });
+
+                // Iterate through tag counts and add "See All" link if count > 10
+                Object.keys(tagCounts).forEach((tabId) => {
+                    const tagCount = tagCounts[tabId];
+                    if (tagCount > 10) {
+                        const seeAllLinkHTML = `
+                        <div class="more-menu" style="
+        padding-top: 10px;
+        justify-content: end;
+        display: flex;
+    ">
+    
+                            <a href="see-all.html#${tabId}">See All</a>
+                            </div>
+                        `;
+
+                        // Append the "See All" link to the container
+                        const tabContainer = document.querySelector(`#${tabId}`);
+                        tabContainer.innerHTML += seeAllLinkHTML;
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching menu data:', error);
+            }
+        }
+
+        // Function to get the tab ID based on the menu item tags
+        function getTabIdByTag(tags) {
+            if (tags === 'lunch') {
+                return 'tab-2'; // Use the appropriate tab ID for 'tags'
+            } else if (tags === 'breakfast') {
+                return 'tab-1'; // Use the appropriate tab ID for 'breakfast'
+            } else if (tags === 'dinner') {
+                return 'tab-3'; // Use the appropriate tab ID for 'dinner'
+            }
+            // If the tag doesn't match any specific tab, you can return null or another default tab ID
+            return null;
+        }
+
+        // Call the fetchAndDisplayMenu function to load data
+        fetchAndDisplayMenu();
+    </script>
+
+    <script>
+        function handleOrderClick(id) {
+            // Check if token exists in local storage
+            const token = localStorage.getItem("token");
+
+            // If token exists, perform an action (e.g., get data with the token's ID)
+            if (token) {
+                const userId = getUserIdFromToken(token);
+                console.log("User ID:", userId);
+                console.log("Product Id:", id);
+
+                // Add your logic here to perform an action with the user's ID
+                // For example, you can make an API call or fetch data
+
+                // Example fetch request with Authorization header
+                fetch(`http://localhost:8000/api/editUserbytoken/${token}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    redirect: 'follow'
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        console.log(result, "user Details");
+
+                        // Extract user ID from the response
+                        const userId = result?.data._id;
+
+                        // Now you can use userId for further processing
+                        console.log("User ID:", userId);
+                        const addToCartData = {
+                            productId: id,
+                            customerId: userId,
+                            quantity: 1 // Replace with the actual quantity
+                        };
+
+                        const myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/json");
+
+                        const requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: JSON.stringify(addToCartData),
+                            redirect: 'follow'
+                        };
+
+                        fetch("http://localhost:8000/api/addToCart", requestOptions)
+                            .then(response => response.text())
+                            .then(result => console.log(result, "data added to cart!"))
+                            .catch(error => console.log('error', error));
+                        window.location.reload()
+                    })
+
+                    .catch(error => console.log('error', error));
+
+            } else {
+                // If token does not exist, redirect to the login page
+                window.location.href = "/login"; // Replace "/login" with the actual login page URL
+            }
+        }
+
+        // Replace this function with your actual logic to extract user ID from the token
+        function getUserIdFromToken(token) {
+            // Add your logic to extract and return the user ID from the token
+            // For example, you might decode the token and retrieve the user ID
+            // Replace the following line with your actual logic
+            const decodedToken = decodeToken(token);
+            return decodedToken.userId; // Assuming userId is part of the decoded token
+        }
+
+        // Replace this function with your actual logic to decode the token
+        function decodeToken(token) {
+            // Add your logic to decode the token and retrieve user information
+            // This is just a placeholder; use a library or implement your own decoding logic
+            return { userId: "user123" };
+        }
+    </script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/wow/wow.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/counterup/counterup.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script>
+        // Get the current URL
+        var currentURL = window.location.href;
+
+        // Extract the ID using a regular expression
+        var match = currentURL.match(/\/(\w+)$/);
+
+        if (match) {
+            var restaurantID = match[1];
+            console.log("Restaurant ID:", restaurantID);
+        } else {
+            console.log("No ID found in the URL.");
+        }
+    </script>
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+
+            console.log(restaurantID, "yyyy")
+            fetch(`http://localhost:8000/api/editResturant/${restaurantID}`, requestOptions)
+                .then(response => response.json())  // Parse the response as JSON
+                .then(result => {
+                    console.log(result)
+                    // Update HTML elements with the retrieved data
+                    if (result.success && result.data) {
+                        var restaurantData = result.data;
+
+                        // Update relevant HTML elements with the restaurant data
+                        document.querySelector("h1.display-3").textContent = restaurantData.Resturnat_name || "N/n";
+                        document.getElementById("about").textContent = restaurantData.Resturnat_name || "N/n";
+                        document.getElementById("content".textContent = restaurantData.About) || "N/n";
+                        document.querySelector("p.AboutContent").textContent = restaurantData.About || "N/n";
+                        document.querySelector("h1.experience").textContent = restaurantData.experience || "N/n";
+                        document.getElementById("experience".textContent = restaurantData.experience) || "N/n";
+                        var chefElement = document.querySelector("h1.chef");
+
+                        if (chefElement) {
+                            chefElement.textContent = restaurantData.chef || "N/n";
+                        }
+
+                        // Update other elements as needed
+                    } else {
+                        console.log("No restaurant data available");
+                    }
+
+                    // Hide the spinner after data is loaded
+                    document.getElementById("spinner").classList.remove("show");
+                })
+                .catch(error => {
+                    console.log('error', error);
+                    // Handle error if needed
+                });
+        });
+    </script>
+</body>
+
+</html>

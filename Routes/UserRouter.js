@@ -1,9 +1,8 @@
 const express = require('express')
 const { authenticateToken } = require('../config/JwtToken');
-const { register, login, AllUsers, editUser, UpdateUsers, deleteUser, Accept_User } = require('../controllers/userController');
-const { AddBlogs, AllBlogs, editBlog, UpdateBlogs, AddBlogsCategory, AllCategory, deleteBlogCategory, deleteBlog } = require('../controllers/blogController');
-const { editTeacher, UpdateTeacher, deleteTeacher, AllTeachers, UpdateTeachersocail_Media, UpdateTeacherBankDetails } = require('../controllers/doctorController');
-
+const { register, login, AllUsers, editUser, UpdateUsers, deleteUser, Accept_User, addToCart, Allcart, Deletecart, UpdateCart, editUserbytoken } = require('../controllers/userController');
+const { Addmenus, Allmenus, editmenu, Updatemenus, AddmenusCategory, AllCategory, deletemenuCategory, deletemenu } = require('../controllers/menuCategoryController');
+const { editTeacher, UpdateTeacher, deleteTeacher, AllTeachers, UpdateTeachersocail_Media, UpdateTeacherBankDetails, AllResturants, editResturant, deleteResturant, UpdateResturant, UpdateResturantBankDetails, UpdateResturantSocail_Media } = require('../controllers/doctorController');
 
 
 const router = express.Router();
@@ -11,25 +10,29 @@ const router = express.Router();
 
 router.post('/register', register);
 router.post('/login', login);
-// router.get('/AllUsers', AllUsers)
-// router.get('/editUser/:id', editUser)
-// router.get('/AllTeachers', AllTeachers)
-// router.put('/UpdateUsers/:id', UpdateUsers)
-// router.post('/AddBlogs', AddBlogs)
-// router.get('/AllBlogs', AllBlogs)
-// router.get('/editBlog/:id', editBlog)
-// router.put('/UpdateBlogs/:id', UpdateBlogs)
-// router.post('/AddBlogsCategory', AddBlogsCategory)
-// router.get('/AllCategory', AllCategory)
-// router.delete('/deleteBlogCategory/:id', deleteBlogCategory)
-// router.delete('/deleteBlog/:id', deleteBlog)
-// router.delete('/deleteUser/:id', deleteUser)
-// router.get('/editTeacher/:id', editTeacher)
-// router.put('/UpdateTeacher/:id', UpdateTeacher)
-// router.delete('/deleteTeacher/:id', deleteTeacher)
-// router.put('/UpdateTeachersocail_Media/:id', UpdateTeachersocail_Media)
-// router.put('/UpdateTeacherBankDetails/:id', UpdateTeacherBankDetails)
-// // router.post('/Accept_User/:id', Accept_User)
-
+router.get('/AllUsers', AllUsers)
+router.get('/editUser/:id', editUser)
+router.get('/AllResturants', AllResturants)
+router.put('/UpdateUsers/:id', UpdateUsers)
+router.post('/Addmenus', Addmenus)
+router.get('/Allmenus', Allmenus)
+router.get('/editmenu/:id', editmenu)
+router.put('/Updatemenus/:id', Updatemenus)
+router.post('/AddmenusCategory', AddmenusCategory)
+router.get('/AllCategory', AllCategory)
+router.delete('/deletemenuCategory/:id', deletemenuCategory)
+router.delete('/deletemenu/:id', deletemenu)
+router.delete('/deleteUser/:id', deleteUser)
+router.get('/editResturant/:id', editResturant)
+router.put('/UpdateResturant/:id', UpdateResturant)
+router.delete('/deleteResturant/:id', deleteResturant)
+router.put('/UpdateResturantSocail_Media/:id', UpdateResturantSocail_Media)
+router.put('/UpdateResturantBankDetails/:id', UpdateResturantBankDetails)
+router.post('/Accept_User/:id', Accept_User)
+router.post('/addToCart', addToCart)
+router.get('/Allcart/:id', Allcart)
+router.delete('/Deletecart/:id', Deletecart)
+router.put('/UpdateCart/:id', UpdateCart)
+router.get('/editUserbytoken/:token', editUserbytoken)
 
 module.exports = router;

@@ -13,7 +13,6 @@ const dbConnect = require('../config/db');
 const userModel = require('../models/userModel');
 dbConnect();
 
-
 app.use('/api', userRoutes)
 
 
@@ -27,42 +26,50 @@ module.exports.handler = serverless(app);
 
 
 app.get('/', async function (req, res) {
-    res.render('index');
+    res.render('index', { apiUrl: process.env.APIURL });
 });
 
 app.get('/about', async function (req, res) {
-    res.render('about');
+    res.render('about', { apiUrl: process.env.APIURL });
 });
 
 app.get('/booking', async function (req, res) {
-    res.render('booking');
+    res.render('booking', { apiUrl: process.env.APIURL });
 });
 
 
 app.get('/contact', async function (req, res) {
-    res.render('contact');
+    res.render('contact', { apiUrl: process.env.APIURL });
 });
 app.get('/login', async function (req, res) {
-    res.render('login');
+    res.render('login', { apiUrl: process.env.APIURL });
 });
 
 app.get('/register', async function (req, res) {
-    res.render('Register');
+    res.render('Register', { apiUrl: process.env.APIURL });
 });
 app.get('/profile/:token', async function (req, res) {
-    res.render('profile');
+    res.render('profile', { apiUrl: process.env.APIURL });
 });
 app.get('/menu', async function (req, res) {
-    res.render('menu');
+    res.render('menu', { apiUrl: process.env.APIURL });
 });
+
 app.get('/service', async function (req, res) {
-    res.render('service');
+    res.render('service', { apiUrl: process.env.APIURL });
 });
+
+
+app.get('/resturant/:id', async function (req, res) {
+    res.render('SingleResturant', { apiUrl: process.env.APIURL });
+});
+
+
 app.get('/team', async function (req, res) {
-    res.render('team');
+    res.render('team', { apiUrl: process.env.APIURL });
 });
 app.get('/testimonial', async function (req, res) {
-    res.render('testimonial');
+    res.render('testimonial', { apiUrl: process.env.APIURL });
 });
 const port = process.env.PORT || 3001;
 

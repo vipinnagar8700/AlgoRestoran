@@ -1,0 +1,79 @@
+<div class="container-xxl pt-5 pb-3">
+    <div class="container">
+        <div class="text-start wow fadeInUp" data-wow-delay="0.1s">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="section-title ff-secondary text-start text-primary fw-normal">Restaurant Near You</h5>
+                <h6><a href="/All-resturants">
+                        See all
+                    </a></h6>
+            </div>
+
+        </div>
+        <div class="row g-4" id="restaurantContainer">
+
+        </div>
+    </div>
+</div>
+<script>
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    // Replace the URL with your actual API endpoint
+    fetch("http://localhost:8000/api/AllResturants", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            // Assuming the API response is an array of restaurant objects
+            const restaurants = result?.[0]?.data;
+            console.log(restaurants, "7777")
+            // Display only four restaurant entries
+            const maxRestaurants = 4;
+            const restaurantContainer = document.getElementById('restaurantContainer');
+
+            for (let i = 0; i < Math.min(restaurants.length, maxRestaurants); i++) {
+                const restaurant = restaurants[i];
+
+                // Create HTML elements for each restaurant
+                const restaurantDiv = document.createElement('div');
+                restaurantDiv.className = 'col-lg-3 col-md-6 wow fadeInUp';
+                restaurantDiv.setAttribute('data-wow-delay', `${0.1 + i * 0.2}s`);
+
+                // Customize this part based on your actual API response structure
+                restaurantDiv.innerHTML = `
+                <a href="/resturant/${restaurant._id}">
+
+                    <div class="team-item text-center rounded overflow-hidden">
+                        <div class=" overflow-hidden m-4">
+                            <img class="img-fluid" src="img/team-4.jpg" alt="">
+                        </div>
+                        <div class="d-flex justify-content-between m-4">
+                            <div class="text-start">
+                                <h5 class="mb-0">KFC</h5>
+                                <small>Noida sec-159</small>
+                            </div>
+                            <div>
+                                <h6 class="btn-primary p-2 text-white">4.9</h6>
+                            </div>
+                        </div>
+                        <h6 class="text-primary m-4">10%</h6>
+    
+                        <div class="d-flex justify-content-center mt-3">
+                            <a class="btn btn-square btn-primary mx-1" href="www.fb.com"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href="www/"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href="${restaurant.instagramLink}"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    </a>
+                `;
+
+                // Append the restaurant div to the container
+                restaurantContainer.appendChild(restaurantDiv);
+            }
+        })
+        .catch(error => console.log('error', error));
+</script>

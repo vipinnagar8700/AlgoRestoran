@@ -51,7 +51,6 @@ const editResturant = async (req, res) => {
     }
 }
 
-
 const UpdateResturant = async (req, res) => {
     const { id } = req.params;
     const updateData = req.body; // Assuming you send the updated data in the request body

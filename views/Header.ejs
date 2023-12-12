@@ -13,17 +13,94 @@
             <a href="/menu" class="nav-item nav-link">Menu</a>
             <a href="/menu" class="nav-item nav-link">Blogs</a>
             <a href="/contact" class="nav-item nav-link">Contact</a>
+            <a href="/" class="nav-item nav-link" id="cartLinka">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" font-weight="900" height="20" fill="currentColor"
+                    class="bi bi-cart" viewBox="0 0 16 16">
+                    <path
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                </svg><span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger">
+                    99+
+                </span></i>
+            </a>
         </div>
         <span id="loggedInOptions" style="display: none;">
             <!-- Add any additional logged-in options here -->
-            <a id="profileLink" class="nav-item nav-link">Profile</a>
-            <a href="#" class="nav-item nav-link" onclick="logout()">Logout</a>
+            <div class="dropdown">
+                <button class="btn btn-secondaryy dropdown-toggle d-flex align-items-center" type="button"
+                    id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="border-radius-50" style="border-radius: 50% ;width:65%" src="../img/menu-1.jpg" alt="">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li> <a id="profileLink" class="nav-item nav-link">Profile</a></li>
+                    <li><a id="cartLink" class="nav-item nav-link">Cart</a></li>
+                    <li> <a href="#" class="nav-item nav-link" onclick="logout()">Logout</a></li>
+
+                </ul>
+            </div>
+
         </span>
         <span id="loginButtonContainer">
             <a href="/login" class="btn btn-primary py-2 px-4">Login / Register</a>
         </span>
     </div>
 </nav>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Check if token exists in local storage
+        const token = localStorage.getItem("token");
+
+        // Get the cart link element
+        const cartLink = document.getElementById("cartLinka");
+
+        // If token exists, show the cart link; otherwise, hide it
+        if (token) {
+            cartLink.style.display = "block";
+        } else {
+            cartLink.style.display = "none";
+        }
+    });
+</script>
+<script>
+    // Get the token from localStorage
+    var token = localStorage.getItem('token');
+    console.log(token, "token")
+    // Check if the token is present in localStorage
+    if (token && token) {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        // Replace the API URL with your actual API endpoint
+        fetch("http://localhost:8000/api/editUserbytoken/" + token, requestOptions)
+            .then(response => response.json())
+            .then(userData => {
+                // Extract user ID from the response
+                const userId = userData?.data?._id;
+                console.log(userId, "ooo")
+                // Make a second API call using the user ID
+                fetch("http://localhost:8000/api/Allcart/" + userId, requestOptions)
+                    .then(response => response.json())
+                    .then(cartData => {
+                        const length = cartData.length;
+                        // console.log(length)
+                        const badgeSpan = document.querySelector('.position-absolute.top-1.start-100.translate-middle.badge.rounded-pill.bg-danger');
+                        badgeSpan.textContent = length > 99 ? '99+' : length.toString();
+                    })
+                    .catch(error => console.log('error', error));
+            })
+            .catch(error => console.log('error', error));
+    } else {
+        console.log('Token not found in localStorage.');
+    }
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const token = getTokenFromLocalStorage();
@@ -45,10 +122,19 @@
         // Display the logged-in options
         const loggedInOptionsContainer = document.getElementById('loggedInOptions');
         const profileLink = document.getElementById('profileLink');
+        const cartLink = document.getElementById('cartLink');
+
 
         if (loggedInOptionsContainer && profileLink) {
             // Update the profile link with the token
             profileLink.href = `/profile/${token}`;
+
+            loggedInOptionsContainer.style.display = 'inline-block';
+        }
+        if (loggedInOptionsContainer && cartLink) {
+            // Update the profile link with the token
+            cartLink.href = `/cart/${token}`;
+            cartLinka.href = `/cart/${token}`;
 
             loggedInOptionsContainer.style.display = 'inline-block';
         }
@@ -79,6 +165,7 @@
         localStorage.removeItem('token');
         // After logout, show the login button
         showLoginButton();
+        window.location.reload()
     }
 
 </script>

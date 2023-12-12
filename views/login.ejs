@@ -73,6 +73,19 @@
 
                 <div class="col-md-12 bg-dark d-flex align-items-center">
                     <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                        <!-- Success Alert -->
+                       <!-- Success Alert -->
+<div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+    <!-- Success message will be dynamically inserted here -->
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- Error Alert -->
+<div id="errorAlert" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
+    <!-- Error message will be dynamically inserted here -->
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
                         <h1 class="text-white mb-4">Login to your account</h1>
                         <form id="loginUser" enctype="multipart/form-data">
@@ -140,6 +153,7 @@
             <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
     <script>
+        const apiUrl = "<%= apiUrl %>";
         function loginUser() {
             // Get form values
 
@@ -167,13 +181,14 @@
             event.preventDefault();
 
             // Make API call
-            fetch("http://localhost:8000/api/login", requestOptions)
+            fetch(`${apiUrl}/api/login`, requestOptions)
                 .then(response => response.json()) // Assuming the response is JSON
                 .then(result => {
                     console.log(result);
 
                     // Handle success
                     if (result.message === "Successfully Login!") {
+                        showSuccessAlert(result.message);
                         const token = result.data.token;
 
                         // Store token in cookies
@@ -186,10 +201,12 @@
                         // Continue with any other success handling, e.g., show a success message or redirect to another page
                     } else {
                         // Handle the case where the login was not successful
+                        showErrorAlert(result.message);
                         console.error("Login failed:", result.message);
                     }
                 })
                 .catch(error => {
+                    showErrorAlert(error);
                     console.log('error', error);
                     // Handle error, e.g., show an error message
                 });
@@ -200,6 +217,31 @@
             // Attach the registerUser function to the form's submit event
             document.getElementById("loginForm").addEventListener("submit", loginUser);
         });
+
+
+        function showSuccessAlert(message) {
+            // Display the success alert with the API message
+            const successAlert = document.getElementById('successAlert');
+            if (successAlert) {
+                successAlert.innerHTML = `
+            <strong>Success!</strong> ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+                successAlert.style.display = 'block';
+            }
+        }
+
+        function showErrorAlert(message) {
+            // Display the error alert with the API message
+            const errorAlert = document.getElementById('errorAlert');
+            if (errorAlert) {
+                errorAlert.innerHTML = `
+            <strong>Error!</strong> ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+                errorAlert.style.display = 'block';
+            }
+        }
     </script>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
