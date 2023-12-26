@@ -225,6 +225,9 @@ const Allcart = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error', "success": false });
     }
 };
+
+
+
 const Deletecart = async (req, res) => {
     const cartId = req.params.id;
     console.log(cartId)
@@ -238,10 +241,10 @@ const Deletecart = async (req, res) => {
 
         // Get the cart from the customer data
         const cart = customerData.cart;
-
+        console.log(cart, "888")
         // Find the index of the product in the cart
         const productIndex = cart.findIndex(item => item._id.toString() === cartId);
-
+        console.log(productIndex, "0099")
         // If the product is not found in the cart
         if (productIndex === -1) {
             return res.status(404).json({ error: 'Product not found in the cart', "success": false });

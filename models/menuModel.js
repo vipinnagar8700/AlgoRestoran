@@ -11,17 +11,13 @@ var menuSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    category_id: {
-        type: String,
-        required: true,
-    },
+    category_id: { type: mongoose.Schema.Types.ObjectId, ref: 'MenuCategory' },
     image: {
         type: String,
         default: null,
     },
     resturant_id: {
-        type: String,
-        required: true,
+        type: mongoose.Schema.Types.ObjectId, ref: 'Resturant'
 
     },
     tags: {

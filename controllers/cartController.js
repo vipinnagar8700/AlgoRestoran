@@ -35,7 +35,7 @@ const addToCart = asyncHandler(async (req, res) => {
 
 
 
-const Allcart = async (req, res) => {
+ const Allcart = async (req, res) => {
     try {
         const patients = await Cart.find().populate('product_id') // Populate the product_id field with Menu details
             .populate('user_id').exec();; // Exclude the 'password' field;

@@ -1,8 +1,9 @@
 const express = require('express')
 const { authenticateToken } = require('../config/JwtToken');
 const { register, login, AllUsers, editUser, UpdateUsers, deleteUser, Accept_User, addToCart, Allcart, Deletecart, UpdateCart, editUserbytoken } = require('../controllers/userController');
-const { Addmenus, Allmenus, editmenu, Updatemenus, AddmenusCategory, AllCategory, deletemenuCategory, deletemenu } = require('../controllers/menuCategoryController');
+const { Addmenus, Allmenus, editmenu, Updatemenus, AddmenusCategory, AllCategory, deletemenuCategory, deletemenu, filterMenus } = require('../controllers/menuCategoryController');
 const { editTeacher, UpdateTeacher, deleteTeacher, AllTeachers, UpdateTeachersocail_Media, UpdateTeacherBankDetails, AllResturants, editResturant, deleteResturant, UpdateResturant, UpdateResturantBankDetails, UpdateResturantSocail_Media } = require('../controllers/doctorController');
+const { OrderMake, getOrder, allOrder } = require('../controllers/orderController');
 
 
 const router = express.Router();
@@ -34,5 +35,9 @@ router.get('/Allcart/:id', Allcart)
 router.delete('/Deletecart/:id', Deletecart)
 router.put('/UpdateCart/:id', UpdateCart)
 router.get('/editUserbytoken/:token', editUserbytoken)
+router.post('/OrderMake', OrderMake)
+router.get('/filterMenus', filterMenus)
+router.get('/getOrder/:id', getOrder)
+router.get('/allOrder', allOrder)
 
 module.exports = router;
